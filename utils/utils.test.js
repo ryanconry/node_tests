@@ -36,7 +36,7 @@ it('Should async add two numbers', (done) => {    //done specifies async test
   utils.asyncAdd(4,3,(sum) => {
     expect(sum).toBe(7).toBeA('number');
     done();
-  })
+  });
 });
 
 it('Should async square a number', (done) => {
