@@ -8,3 +8,15 @@ module.exports.setName = (user,fullName) => {
   user.lastName = names.slice(-1);
   return user;
 };
+
+module.exports.asyncAdd = (a,b,callback) => {
+  setTimeout(()=>{                            //timoute to simulate async
+    callback(a+b);
+  },1000)
+};
+
+module.exports.asyncSquare = (a,callback) => {
+  setTimeout(()=> {
+    callback(a*a);
+  },1000)
+}

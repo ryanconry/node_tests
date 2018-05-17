@@ -3,23 +3,15 @@ const utils = require('./utils');
 
 it('should add two numbers',() => {       //it() being a mocha test case
   var res = utils.add(33,11);
-
   expect(res).toBe(44).toBeA('number');   //assertion test using expect library
-  // if (res!==44){
-  //   throw new Error('Value not correct');
-  // }
 });
 
 it('should square the given number', () => {
   var res = utils.square(9);
   expect(res).toBe(81).toBeA('number');
-  // if(res!==81){
-  //   throw new Error('Value incorrect');
-  // }
-})
+});
 
 it('should expect some values', () => {         //assertion testing for objects/arrays
-  //expect(12).toNotBe(11);
   expect({name: 'Ryan'}).toEqual({name: 'Ryan'}); //toEqual instead of toBe
   expect([2,3,4]).toInclude(3);
   expect({
@@ -39,3 +31,17 @@ it('should verify first and last names are set', () => {
     lastName : 'Conry'
   });
 });
+
+it('Should async add two numbers', (done) => {    //done specifies async test
+  utils.asyncAdd(4,3,(sum) => {
+    expect(sum).toBe(7).toBeA('number');
+    done();
+  })
+});
+
+it('Should async square a number', (done) => {
+  utils.asyncSquare(7,(squared) => {
+    expect(squared).toBe(49).toBeA('number');
+    done();
+  })
+})
